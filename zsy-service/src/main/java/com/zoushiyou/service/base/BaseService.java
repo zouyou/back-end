@@ -1,20 +1,25 @@
 package com.zoushiyou.service.base;
 
 import com.zoushiyou.dao.base.BaseDao;
+import com.zoushiyou.model.base.BaseModel;
 import com.zoushiyou.model.dto.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class BaseService<BaseModel> implements IBaseService<BaseModel> {
+public abstract class BaseService<TModel extends BaseModel> implements IBaseService<TModel> {
     @Autowired
-    protected BaseDao<BaseModel> modelDao;
+    protected BaseDao<TModel> modelDao;
 
-    public Boolean insertOne(BaseModel model) {
+    public Boolean insertOne(TModel model) {
         return modelDao.insertOne(model);
     }
 
-    public ResultVo<BaseModel> findOne(String pkId) {
-        ResultVo<BaseModel> vo=new ResultVo<BaseModel>();
-        BaseModel data=modelDao.findOne(pkId);
+    public Boolean updateOne(TModel model) {
+        return modelDao.insertOne(model);
+    }
+
+    public ResultVo findOne(String pkId) {
+        ResultVo<TModel> vo=new ResultVo<TModel>();
+        TModel data=modelDao.findOne(pkId);
         vo.setData(data);
         return vo;
     }

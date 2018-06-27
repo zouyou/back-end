@@ -20,6 +20,18 @@ public abstract class BaseModel {
      */
     protected String version;
     /**
+     * 编码
+     */
+    protected String code;
+    /**
+     * 名称
+     */
+    protected String name;
+    /**
+     * 备注
+     */
+    protected String remarks;
+    /**
      * 排序数字
      */
     protected Integer sortNum;
@@ -70,6 +82,30 @@ public abstract class BaseModel {
 
     public void setVersion(String version) {
         this.version = version;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
     }
 
     public Integer getSortNum() {

@@ -1,6 +1,8 @@
 package com.zoushiyou.web.base;
 
+import com.zoushiyou.model.base.BaseModel;
 import com.zoushiyou.model.dto.ResultVo;
+import com.zoushiyou.service.base.BaseService;
 import com.zoushiyou.service.impl.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * 父类接口
  * @param <TService>
  */
-public abstract class BaseController<TService extends StudentService> {
+public abstract class BaseController<TService extends BaseService> {
     @Autowired
     protected TService modelService;
 
