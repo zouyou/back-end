@@ -1,19 +1,19 @@
 package com.zoushiyou.test;
 
+import com.zoushiyou.model.dto.ResultVo;
 import com.zoushiyou.model.user.Student;
 import com.zoushiyou.service.impl.StudentService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import javax.annotation.Resource;
 import java.util.UUID;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath*:config/applicationContext.xml")
 public class ServiceTest {
-    @Resource
+    @Autowired
     private StudentService studentService;
 
     @Test
@@ -28,7 +28,7 @@ public class ServiceTest {
 
     @Test
     public void findOne() throws Exception {
-        Student student = studentService.findOne("1");
-        System.out.println(student.toString());
+        ResultVo student = studentService.findOne("1");
+        System.out.println(student.getData().toString());
     }
 }

@@ -1,8 +1,10 @@
 package com.zoushiyou.service.impl;
 
 import com.zoushiyou.model.user.Student;
-import com.zoushiyou.service.base.ModelService;
+import com.zoushiyou.service.base.BaseService;
+import org.springframework.stereotype.Service;
 
-public class StudentService extends ModelService<Student> {
+@Service
+public class StudentService extends BaseService<Student> {
 
 }
