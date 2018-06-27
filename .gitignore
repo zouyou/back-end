@@ -23,3 +23,7 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+/zsy-dao/target
+/zsy-model/target
+/zsy-service/target
+/zsy-web/target
