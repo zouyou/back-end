@@ -16,7 +16,7 @@ public class UserInfo extends BaseModel {
     /**
      * 性别 1：男 0：女
      */
-    private Boolean IsMale;
+    private boolean isMale;
     /**
      * 手机号码
      */
@@ -38,12 +38,12 @@ public class UserInfo extends BaseModel {
         this.passWord = passWord;
     }
 
-    public Boolean getMale() {
-        return IsMale;
+    public boolean isMale() {
+        return isMale;
     }
 
-    public void setMale(Boolean male) {
-        IsMale = male;
+    public void setMale(boolean male) {
+        isMale = male;
     }
 
     public String getPhoneNum() {

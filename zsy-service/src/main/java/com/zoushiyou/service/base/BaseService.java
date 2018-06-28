@@ -2,12 +2,11 @@ package com.zoushiyou.service.base;
 
 import com.zoushiyou.dao.base.BaseDao;
 import com.zoushiyou.model.base.BaseModel;
-import com.zoushiyou.model.dto.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public abstract class BaseService<TModel extends BaseModel> implements IBaseService<TModel> {
+public abstract class BaseService<TBaseDao extends BaseDao, TModel extends BaseModel> implements IBaseService<TModel> {
     @Autowired
-    protected BaseDao<TModel> modelDao;
+    private TBaseDao modelDao;
 
     public Boolean insertOne(TModel model) {
         return modelDao.insertOne(model);
@@ -17,10 +16,12 @@ public abstract class BaseService<TModel extends BaseModel> implements IBaseServ
         return modelDao.insertOne(model);
     }
 
-    public ResultVo findOne(String pkId) {
-        ResultVo<TModel> vo=new ResultVo<TModel>();
-        TModel data=modelDao.findOne(pkId);
-        vo.setData(data);
+    public Boolean deleteOne(String pkId) {
+        return modelDao.deleteOne(pkId);
+    }
+
+    public TModel findOne(String pkId) {
+        TModel vo=(TModel) modelDao.findOne(pkId);
         return vo;
     }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zoushiyou.dao.user.StudentDao" >
-    <resultMap id="BaseResultMap" type="com.zoushiyou.model.user.Student" >
+<mapper namespace="com.zoushiyou.dao.user.RoleInfoDao" >
+    <resultMap id="BaseResultMap" type="com.zoushiyou.model.user.RoleInfo" >
         <result column="id" property="id" jdbcType="VARCHAR" />
         <result column="parentId" property="parentId" jdbcType="VARCHAR" />
         <result column="version" property="version" jdbcType="INTEGER" />
@@ -21,8 +21,8 @@
     id, parentId, version, code, name, remarks, sortNum, isEnable, isDelete, ownerId,
     createId, updateId, createTime, updateTime
     </sql>
-    <insert id="insertOne" parameterType="com.zoushiyou.model.user.Student" >
-    insert into tb_student (id, parentId, version,
+    <insert id="insertOne" parameterType="com.zoushiyou.model.user.RoleInfo" >
+    insert into tb_roleinfo (id, parentId, version,
       code, name, remarks,
       sortNum, isEnable, isDelete,
       ownerId, createId, updateId,
@@ -33,8 +33,8 @@
       #{ownerId,jdbcType=VARCHAR}, #{createId,jdbcType=VARCHAR}, #{updateId,jdbcType=VARCHAR},
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-    <update id="updateOne" parameterType="com.zoushiyou.model.user.Student" >
-    update tb_student
+    <update id="updateOne" parameterType="com.zoushiyou.model.user.RoleInfo" >
+    update tb_roleinfo
     set parentId = #{parentId,jdbcType=VARCHAR},
       version = version+1,
       code = #{code,jdbcType=VARCHAR},
@@ -49,11 +49,11 @@
     where id = #{id,jdbcType=VARCHAR}
     </update>
     <update id="deleteOne" parameterType="java.lang.String" >
-       update tb_student set isDelete = 1 where id = #{id,jdbcType=VARCHAR}
+       update tb_roleinfo set isDelete = 1 where id = #{id,jdbcType=VARCHAR}
     </update>
     <select id="findOne" resultMap="BaseResultMap" parameterType="java.lang.String" >
         select
         <include refid="Base_Column_List" />
-        from tb_student where id = #{id,jdbcType=VARCHAR}
+        from tb_roleinfo where id = #{id,jdbcType=VARCHAR}
     </select>
 </mapper>

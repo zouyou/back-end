@@ -1,5 +1,6 @@
 package com.zoushiyou.service.base;
 
+import com.zoushiyou.dao.base.BaseDao;
 import com.zoushiyou.model.base.BaseModel;
 import com.zoushiyou.model.dto.ResultVo;
 
@@ -12,23 +13,27 @@ import com.zoushiyou.model.dto.ResultVo;
  */
 public interface IBaseService<TModel extends BaseModel> {
     /**
-     * 插入一条
+     * 插入一条数据
      * @param model
      * @return
      */
     Boolean insertOne(TModel model);
-
     /**
-     * 修改一条
+     * 修改一条数据
      * @param model
      * @return
      */
     Boolean updateOne(TModel model);
-
+    /**
+     * 删除一条数据
+     * @param pkId
+     * @return
+     */
+    Boolean deleteOne(String pkId);
     /**
      * 查询一条数据
      * @param pkId
      * @return
      */
-    ResultVo<TModel> findOne(String pkId);
+    TModel findOne(String pkId);
 }

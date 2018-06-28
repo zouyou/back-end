@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zoushiyou.dao.user.UserInfoDao">
+    <resultMap id="BaseResultMap" type="com.zoushiyou.model.user.UserInfo">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="parentId" property="parentId" jdbcType="VARCHAR"/>
+        <result column="version" property="version" jdbcType="INTEGER"/>
+        <result column="code" property="code" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="remarks" property="remarks" jdbcType="VARCHAR"/>
+        <result column="sortNum" property="sortNum" jdbcType="INTEGER"/>
+        <result column="isEnable" property="isEnable" jdbcType="BIT"/>
+        <result column="isDelete" property="isDelete" jdbcType="BIT"/>
+        <result column="ownerId" property="ownerId" jdbcType="VARCHAR"/>
+        <result column="createId" property="createId" jdbcType="VARCHAR"/>
+        <result column="updateId" property="updateId" jdbcType="VARCHAR"/>
+        <result column="createTime" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="passWord" property="passWord" jdbcType="VARCHAR"/>
+        <result column="isMale" property="isMale" jdbcType="BIT"/>
+        <result column="phoneNum" property="phoneNum" jdbcType="VARCHAR"/>
+        <result column="roleId" property="roleId" jdbcType="VARCHAR"/>
+        <result column="deptId" property="deptId" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, parentId, version, code, name, remarks, sortNum, isEnable, isDelete, ownerId,
+    createId, updateId, createTime, updateTime, passWord, isMale, phoneNum, roleId, deptId
+  </sql>
+    <insert id="insertOne" parameterType="com.zoushiyou.model.user.UserInfo">
+    insert into tb_userinfo (id, parentId, version,
+      code, name, remarks,
+      sortNum, isEnable, isDelete,
+      ownerId, createId, updateId,
+      createTime, updateTime, passWord,
+      isMale, phoneNum, roleId,
+      deptId)
+    values (#{id,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR}, #{version,jdbcType=INTEGER},
+      #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR},
+      #{sortNum,jdbcType=INTEGER}, #{isEnable,jdbcType=BIT}, #{isDelete,jdbcType=BIT},
+      #{ownerId,jdbcType=VARCHAR}, #{createId,jdbcType=VARCHAR}, #{updateId,jdbcType=VARCHAR},
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{passWord,jdbcType=VARCHAR},
+      #{isMale,jdbcType=BIT}, #{phoneNum,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR},
+      #{deptId,jdbcType=VARCHAR})
+  </insert>
+    <update id="updateOne" parameterType="com.zoushiyou.model.user.UserInfo">
+    update tb_userinfo
+    set parentId = #{parentId,jdbcType=VARCHAR},
+      version = version+1,
+      code = #{code,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sortNum = #{sortNum,jdbcType=INTEGER},
+      isEnable = #{isEnable,jdbcType=BIT},
+      isDelete = #{isDelete,jdbcType=BIT},
+      ownerId = #{ownerId,jdbcType=VARCHAR},
+      updateId = #{updateId,jdbcType=VARCHAR},
+      updateTime = #{updateTime,jdbcType=TIMESTAMP},
+      passWord = #{passWord,jdbcType=VARCHAR},
+      isMale = #{isMale,jdbcType=BIT},
+      phoneNum = #{phoneNum,jdbcType=VARCHAR},
+      roleId = #{roleId,jdbcType=VARCHAR},
+      deptId = #{deptId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+    <update id="deleteOne" parameterType="java.lang.String">
+       update tb_userinfo set isDelete = 1 where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <select id="findOne" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_userinfo where id = #{id,jdbcType=VARCHAR}
+    </select>
+</mapper>

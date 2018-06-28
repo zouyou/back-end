@@ -1,5 +1,7 @@
 package com.zoushiyou.model.dto;
 
+import com.zoushiyou.model.base.BaseModel;
+
 /**
  * 返回前端的数据对象
  * @param <T> 对象
