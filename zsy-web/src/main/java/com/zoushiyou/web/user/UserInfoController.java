@@ -1,9 +1,10 @@
 package com.zoushiyou.web.user;
 
 import com.zoushiyou.model.dto.ResultVo;
+import com.zoushiyou.model.user.UserInfo;
 import com.zoushiyou.service.impl.RoleInfoService;
 import com.zoushiyou.service.impl.UserInfoService;
-import com.zoushiyou.web.base.BaseController;
+import com.zoushiyou.web.base.WebController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping(value = "/v1/user")
-public class UserInfoController extends BaseController<UserInfoService> {
+public class UserInfoController extends WebController<UserInfoService,UserInfo> {
     @Autowired
     RoleInfoService roleInfoService;
 

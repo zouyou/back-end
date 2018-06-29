@@ -1,8 +1,6 @@
 package com.zoushiyou.service.base;
 
-import com.zoushiyou.dao.base.BaseDao;
 import com.zoushiyou.model.base.BaseModel;
-import com.zoushiyou.model.dto.ResultVo;
 
 /**
  * 服务基础接口

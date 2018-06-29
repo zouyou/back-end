@@ -44,6 +44,10 @@ public abstract class BaseModel {
      */
     protected boolean isDelete;
     /**
+     * 拥有人Id
+     */
+    protected String ownerId;
+    /**
      * 创建者Id
      */
     protected String createId;
@@ -130,6 +134,14 @@ public abstract class BaseModel {
 
     public void setDelete(boolean delete) {
         isDelete = delete;
+    }
+
+    public String getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
     }
 
     public String getCreateId() {
