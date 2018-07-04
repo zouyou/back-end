@@ -32,4 +32,5 @@ public interface BaseDao<TModel extends BaseModel> {
      * @return
      */
     TModel findOne(String pkId);
+
 }

@@ -18,7 +18,7 @@ public abstract class BaseModel {
     /**
      * 版本
      */
-    protected String version;
+    protected Integer version;
     /**
      * 编码
      */
@@ -80,11 +80,11 @@ public abstract class BaseModel {
         this.parentId = parentId;
     }
 
-    public String getVersion() {
+    public Integer getVersion() {
         return version;
     }
 
-    public void setVersion(String version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
