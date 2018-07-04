@@ -1,7 +1,5 @@
 package com.zoushiyou.model.dto;
 
-import com.zoushiyou.model.base.BaseModel;
-
 /**
  * 返回前端的数据对象
  * @param <T> 对象
@@ -11,6 +9,16 @@ public class ResultVo<T> {
     private Integer status = 200;
     private String message = "";
     private T data = null;
+
+    public ResultVo() {
+    }
+
+    public ResultVo(Integer totalNum, Integer status, String message, T data) {
+        this.totalNum = totalNum;
+        this.status = status;
+        this.message = message;
+        this.data = data;
+    }
 
     public Integer getTotalNum() {
         return totalNum;

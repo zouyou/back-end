@@ -183,6 +183,7 @@ CREATE TABLE `tb_userinfo` (
   `createTime` datetime NOT NULL COMMENT '创建时间',
   `updateTime` datetime DEFAULT NULL COMMENT '修改时间',
   `passWord` varchar(150) DEFAULT NULL COMMENT '用户密码',
+  `salt` varchar(36) DEFAULT NULL COMMENT '盐密码',
   `isMale` bit(1) DEFAULT NULL COMMENT '性别',
   `phoneNum` varchar(15) DEFAULT NULL COMMENT '手机号码',
   `roleId` varchar(36) DEFAULT NULL COMMENT '角色Id',

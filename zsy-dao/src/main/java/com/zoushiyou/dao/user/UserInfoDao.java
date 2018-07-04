@@ -11,4 +11,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UserInfoDao extends BaseDao<UserInfo> {
+    UserInfo findByUserName(String username);
 }

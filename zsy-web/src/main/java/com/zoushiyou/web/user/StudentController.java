@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Author QQ:511570155
  */
 @RestController
-@RequestMapping(value = "/student")
+@RequestMapping(value = "/v1/student")
 public class StudentController extends WebController<StudentService,Student> {
 
 

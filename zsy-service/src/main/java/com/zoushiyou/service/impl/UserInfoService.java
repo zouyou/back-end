@@ -10,4 +10,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserInfoService extends BaseService<UserInfoDao,UserInfo> {
+    public  UserInfo findByUserName(String username){
+      return modelDao.findByUserName(username);
+    }
 }

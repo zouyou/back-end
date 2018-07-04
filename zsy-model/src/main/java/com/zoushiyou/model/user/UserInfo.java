@@ -1,5 +1,6 @@
 package com.zoushiyou.model.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zoushiyou.model.base.BaseModel;
 
 /**
@@ -11,7 +12,13 @@ public class UserInfo extends BaseModel {
     /**
      * 密码
      */
+    @JsonIgnore
     private String passWord;
+    /**
+     * md5密码盐
+     */
+    @JsonIgnore
+    private String salt;
 
     /**
      * 性别 1：男 0：女
@@ -29,6 +36,10 @@ public class UserInfo extends BaseModel {
      * 部门Id
      */
     private String deptId;
+    /**
+     * 标识
+     */
+    private String token;
 
     public String getPassWord() {
         return passWord;
@@ -36,6 +47,14 @@ public class UserInfo extends BaseModel {
 
     public void setPassWord(String passWord) {
         this.passWord = passWord;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 
     public boolean isMale() {
@@ -68,5 +87,13 @@ public class UserInfo extends BaseModel {
 
     public void setDeptId(String deptId) {
         this.deptId = deptId;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

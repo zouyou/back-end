@@ -1,6 +1,8 @@
 # back-end
 后端项目 咨询QQ:511570155
 
+> 加入JWT安全验证
+
 > 捐赠：
 
 > BTC:1GjE8EAum99tfkTTY3jMkNmEKoVTwuFd2J

@@ -17,6 +17,7 @@
         <result column="createTime" property="createTime" jdbcType="TIMESTAMP"/>
         <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP"/>
         <result column="passWord" property="passWord" jdbcType="VARCHAR"/>
+        <result column="salt" property="salt" jdbcType="VARCHAR"/>
         <result column="isMale" property="isMale" jdbcType="BIT"/>
         <result column="phoneNum" property="phoneNum" jdbcType="VARCHAR"/>
         <result column="roleId" property="roleId" jdbcType="VARCHAR"/>
@@ -24,7 +25,7 @@
     </resultMap>
     <sql id="Base_Column_List">
     id, parentId, version, code, name, remarks, sortNum, isEnable, isDelete, ownerId,
-    createId, updateId, createTime, updateTime, passWord, isMale, phoneNum, roleId, deptId
+    createId, updateId, createTime, updateTime, passWord, salt,isMale, phoneNum, roleId, deptId
   </sql>
     <insert id="insertOne" parameterType="com.zoushiyou.model.user.UserInfo">
     insert into tb_userinfo (id, parentId, version,
@@ -33,14 +34,14 @@
       ownerId, createId, updateId,
       createTime, updateTime, passWord,
       isMale, phoneNum, roleId,
-      deptId)
+      deptId,salt)
     values (#{id,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR}, #{version,jdbcType=INTEGER},
       #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR},
       #{sortNum,jdbcType=INTEGER}, #{isEnable,jdbcType=BIT}, #{isDelete,jdbcType=BIT},
       #{ownerId,jdbcType=VARCHAR}, #{createId,jdbcType=VARCHAR}, #{updateId,jdbcType=VARCHAR},
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{passWord,jdbcType=VARCHAR},
       #{isMale,jdbcType=BIT}, #{phoneNum,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR},
-      #{deptId,jdbcType=VARCHAR})
+      #{deptId,jdbcType=VARCHAR},#{salt,jdbcType=VARCHAR})
   </insert>
     <update id="updateOne" parameterType="com.zoushiyou.model.user.UserInfo">
     update tb_userinfo
@@ -69,5 +70,11 @@
         select
         <include refid="Base_Column_List"/>
         from tb_userinfo where id = #{id,jdbcType=VARCHAR}
+    </select>
+
+    <select id="findByUserName" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_userinfo where code = #{username,jdbcType=VARCHAR}
     </select>
 </mapper>
