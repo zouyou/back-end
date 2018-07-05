@@ -1,7 +1,7 @@
 package com.zoushiyou.service.impl;
 
-import com.zoushiyou.dao.user.RoleJoinFuncDao;
-import com.zoushiyou.model.user.RoleJoinFunc;
+import com.zoushiyou.dao.core.RoleJoinFuncDao;
+import com.zoushiyou.model.core.RoleJoinFunc;
 import com.zoushiyou.service.base.BaseService;
 import org.springframework.stereotype.Service;
 

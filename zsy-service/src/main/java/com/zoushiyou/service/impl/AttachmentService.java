@@ -1,7 +1,7 @@
 package com.zoushiyou.service.impl;
 
-import com.zoushiyou.dao.user.AttachmentsDao;
-import com.zoushiyou.model.user.Attachments;
+import com.zoushiyou.dao.core.AttachmentsDao;
+import com.zoushiyou.model.core.Attachments;
 import com.zoushiyou.service.base.BaseService;
 import org.springframework.stereotype.Service;
 

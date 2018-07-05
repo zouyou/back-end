@@ -1,4 +1,4 @@
-package com.zoushiyou.model.user;
+package com.zoushiyou.model.core;
 
 import com.zoushiyou.model.base.BaseModel;
 

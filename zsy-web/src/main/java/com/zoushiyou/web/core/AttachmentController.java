@@ -1,7 +1,7 @@
-package com.zoushiyou.web.user;
+package com.zoushiyou.web.core;
 
 import com.zoushiyou.model.dto.ResultVo;
-import com.zoushiyou.model.user.Attachments;
+import com.zoushiyou.model.core.Attachments;
 import com.zoushiyou.service.impl.AttachmentService;
 import com.zoushiyou.web.base.WebController;
 import org.apache.commons.io.FileUtils;

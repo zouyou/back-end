@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zoushiyou.dao.user.RoleJoinFuncDao" >
-    <resultMap id="BaseResultMap" type="com.zoushiyou.model.user.RoleJoinFunc" >
+<mapper namespace="com.zoushiyou.dao.core.RoleJoinFuncDao" >
+    <resultMap id="BaseResultMap" type="com.zoushiyou.model.core.RoleJoinFunc" >
         <result column="id" property="id" jdbcType="VARCHAR" />
         <result column="parentId" property="parentId" jdbcType="VARCHAR" />
         <result column="version" property="version" jdbcType="INTEGER" />
@@ -24,7 +24,7 @@
     id, parentId, version, code, name, remarks, sortNum, isEnable, isDelete, ownerId,
     createId, updateId, createTime, updateTime,roleId,funcId,levelVal
     </sql>
-    <insert id="insertOne" parameterType="com.zoushiyou.model.user.RoleJoinFunc" >
+    <insert id="insertOne" parameterType="com.zoushiyou.model.core.RoleJoinFunc" >
     insert into tb_rolejoinfunc (id, parentId, version,
       code, name, remarks,
       sortNum, isEnable, isDelete,
@@ -38,7 +38,7 @@
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{roleId,jdbcType=VARCHAR},
       #{funcId,jdbcType=VARCHAR}, #{levelVal,jdbcType=INTEGER})
   </insert>
-    <update id="updateOne" parameterType="com.zoushiyou.model.user.RoleJoinFunc" >
+    <update id="updateOne" parameterType="com.zoushiyou.model.core.RoleJoinFunc" >
     update tb_rolejoinfunc
     set parentId = #{parentId,jdbcType=VARCHAR},
       version = version+1,

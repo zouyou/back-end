@@ -1,7 +1,7 @@
-package com.zoushiyou.dao.user;
+package com.zoushiyou.dao.core;
 
 import com.zoushiyou.dao.base.BaseDao;
-import com.zoushiyou.model.user.Attachments;
+import com.zoushiyou.model.core.Attachments;
 import org.springframework.stereotype.Repository;
 
 /**

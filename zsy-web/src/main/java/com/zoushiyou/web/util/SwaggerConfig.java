@@ -14,7 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration  //必须存在
 @EnableSwagger2 //必须存在
 @EnableWebMvc   //必须存在
-@ComponentScan(basePackages = {"com.zoushiyou.web.user"}) //必须存在
+@ComponentScan(basePackages = {"com.zoushiyou.web.core"}) //必须存在
 public class SwaggerConfig {
     @Bean
     public Docket customDocket() {

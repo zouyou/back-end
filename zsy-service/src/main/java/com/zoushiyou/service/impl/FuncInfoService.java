@@ -1,7 +1,7 @@
 package com.zoushiyou.service.impl;
 
-import com.zoushiyou.dao.user.FuncInfoDao;
-import com.zoushiyou.model.user.FuncInfo;
+import com.zoushiyou.dao.core.FuncInfoDao;
+import com.zoushiyou.model.core.FuncInfo;
 import com.zoushiyou.service.base.BaseService;
 import org.springframework.stereotype.Service;
 

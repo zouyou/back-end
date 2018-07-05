@@ -1,6 +1,6 @@
-package com.zoushiyou.web.user;
+package com.zoushiyou.web.core;
 
-import com.zoushiyou.model.user.Student;
+import com.zoushiyou.model.core.Student;
 import com.zoushiyou.service.impl.StudentService;
 import com.zoushiyou.web.base.WebController;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zoushiyou.dao.user.UserInfoDao">
-    <resultMap id="BaseResultMap" type="com.zoushiyou.model.user.UserInfo">
+<mapper namespace="com.zoushiyou.dao.core.UserInfoDao">
+    <resultMap id="BaseResultMap" type="com.zoushiyou.model.core.UserInfo">
         <id column="id" property="id" jdbcType="VARCHAR"/>
         <result column="parentId" property="parentId" jdbcType="VARCHAR"/>
         <result column="version" property="version" jdbcType="INTEGER"/>
@@ -27,7 +27,7 @@
     id, parentId, version, code, name, remarks, sortNum, isEnable, isDelete, ownerId,
     createId, updateId, createTime, updateTime, passWord, salt,isMale, phoneNum, roleId, deptId
   </sql>
-    <insert id="insertOne" parameterType="com.zoushiyou.model.user.UserInfo">
+    <insert id="insertOne" parameterType="com.zoushiyou.model.core.UserInfo">
     insert into tb_userinfo (id, parentId, version,
       code, name, remarks,
       sortNum, isEnable, isDelete,
@@ -43,7 +43,7 @@
       #{isMale,jdbcType=BIT}, #{phoneNum,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR},
       #{deptId,jdbcType=VARCHAR},#{salt,jdbcType=VARCHAR})
   </insert>
-    <update id="updateOne" parameterType="com.zoushiyou.model.user.UserInfo">
+    <update id="updateOne" parameterType="com.zoushiyou.model.core.UserInfo">
     update tb_userinfo
     set parentId = #{parentId,jdbcType=VARCHAR},
       version = version+1,

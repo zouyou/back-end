@@ -1,7 +1,7 @@
-package com.zoushiyou.web.user;
+package com.zoushiyou.web.core;
 
 import com.zoushiyou.model.dto.ResultVo;
-import com.zoushiyou.model.user.UserInfo;
+import com.zoushiyou.model.core.UserInfo;
 import com.zoushiyou.service.impl.RoleInfoService;
 import com.zoushiyou.service.impl.UserInfoService;
 import com.zoushiyou.web.base.WebController;

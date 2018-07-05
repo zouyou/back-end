@@ -1,7 +1,7 @@
 package com.zoushiyou.service.impl;
 
-import com.zoushiyou.dao.user.StudentDao;
-import com.zoushiyou.model.user.Student;
+import com.zoushiyou.dao.core.StudentDao;
+import com.zoushiyou.model.core.Student;
 import com.zoushiyou.service.base.BaseService;
 import org.springframework.stereotype.Service;
 
