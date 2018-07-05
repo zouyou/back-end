@@ -1,6 +1,5 @@
 package com.zoushiyou.web.user;
 
-
 import com.zoushiyou.model.user.Student;
 import com.zoushiyou.service.impl.StudentService;
 import com.zoushiyou.web.base.WebController;

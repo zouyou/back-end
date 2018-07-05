@@ -10,9 +10,7 @@ import com.zoushiyou.web.util.JWTUtil;
 import com.zoushiyou.web.util.ZsyauthorizedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpServletRequest;
-import java.util.UUID;
 
 /**
  * 用户信息接口

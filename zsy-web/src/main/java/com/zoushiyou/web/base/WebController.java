@@ -37,6 +37,7 @@ public abstract class WebController<TService extends BaseService,TModel extends 
             throw new ZsyauthorizedException("用户信息错误！");
         model.setId(Helper.GetUUID());
         model.setVersion(1);
+        model.setOwnerId(userId);
         model.setCreateId(userId);
         model.setCreateTime(new Date());
         Boolean isRow = modelService.insertOne(model);

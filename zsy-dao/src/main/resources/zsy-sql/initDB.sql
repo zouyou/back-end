@@ -193,6 +193,34 @@ CREATE TABLE `tb_userinfo` (
 
 /*Data for the table `tb_userinfo` */
 
+/*Table structure for table `tb_attachments` */
+
+DROP TABLE IF EXISTS `tb_attachments`;
+
+CREATE TABLE `tb_attachments` (
+  `id` varchar(36) NOT NULL COMMENT '主键Id',
+  `parentId` varchar(36) DEFAULT NULL COMMENT '父级主键Id',
+  `version` int(11) DEFAULT '1' COMMENT '版本',
+  `code` varchar(50) DEFAULT NULL COMMENT '编码',
+  `name` varchar(50) DEFAULT NULL COMMENT '名称',
+  `remarks` varchar(150) DEFAULT NULL COMMENT '备注',
+  `sortNum` int(11) DEFAULT '1' COMMENT '排序数字',
+  `isEnable` bit(1) DEFAULT b'1' COMMENT '是否启用',
+  `isDelete` bit(1) DEFAULT b'0' COMMENT '是否删除',
+  `ownerId` varchar(36) DEFAULT NULL COMMENT '拥有人Id',
+  `createId` varchar(36) NOT NULL COMMENT '创建人Id',
+  `updateId` varchar(36) DEFAULT NULL COMMENT '更新人Id',
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  `updateTime` datetime DEFAULT NULL COMMENT '修改时间',
+  `fkType` int(11) DEFAULT NULL COMMENT '外键类型',
+  `fkPkId` varchar(36) DEFAULT NULL COMMENT '外键Id',
+  `suffix` varchar(20) DEFAULT NULL COMMENT '扩展名',
+  `streamData` blob(4000) DEFAULT NULL COMMENT '文件流'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `tb_attachments` */
+
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
