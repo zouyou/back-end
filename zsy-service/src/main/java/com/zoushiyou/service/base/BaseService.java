@@ -3,6 +3,7 @@ package com.zoushiyou.service.base;
 import com.zoushiyou.dao.base.BaseDao;
 import com.zoushiyou.model.base.BaseModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
 
 public abstract class BaseService<TBaseDao extends BaseDao, TModel extends BaseModel> implements IBaseService<TModel> {
     @Autowired
@@ -23,5 +24,8 @@ public abstract class BaseService<TBaseDao extends BaseDao, TModel extends BaseM
     public TModel findOne(String pkId) {
         TModel vo=(TModel) modelDao.findOne(pkId);
         return vo;
+    }
+    public List<TModel> findAll(){
+        return modelDao.findAll();
     }
 }

@@ -64,4 +64,7 @@
         <include refid="Base_Column_List" />
         from tb_funcinfo where id = #{id,jdbcType=VARCHAR}
     </select>
+    <select id="findAll" resultMap="BaseResultMap" >
+        select <include refid="Base_Column_List" /> from tb_funcinfo
+    </select>
 </mapper>

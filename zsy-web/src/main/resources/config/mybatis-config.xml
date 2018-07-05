@@ -2,6 +2,6 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <package name="com.zoushiyou.model"/>
+        <package name="com.zoushiyou.model.user"/>
     </typeAliases>
 </configuration>

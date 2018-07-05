@@ -1,6 +1,7 @@
 package com.zoushiyou.service.base;
 
 import com.zoushiyou.model.base.BaseModel;
+import java.util.List;
 
 /**
  * 服务基础接口
@@ -34,4 +35,10 @@ public interface IBaseService<TModel extends BaseModel> {
      * @return
      */
     TModel findOne(String pkId);
+
+    /**
+     * 分页数据
+     * @return
+     */
+    List<TModel> findAll();
 }

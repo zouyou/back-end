@@ -1,5 +1,7 @@
 package com.zoushiyou.web.base;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.zoushiyou.model.base.BaseModel;
 import com.zoushiyou.model.dto.ResultVo;
 import com.zoushiyou.service.base.BaseService;
@@ -9,9 +11,12 @@ import com.zoushiyou.web.util.ZsyauthorizedException;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.swing.table.TableModel;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Webcontroller
@@ -58,6 +63,17 @@ public abstract class WebController<TService extends BaseService,TModel extends 
             throw new Exception("修改数据对象失败！");
         vo.setData(model);
         vo.setTotalNum(1);
+        return vo;
+    }
+    @RequestMapping(value = "/findAll", method = RequestMethod.GET)
+    public ResultVo findAll(@RequestParam("pIndex") Integer pIndex,
+                            @RequestParam("pSize") Integer pSize) throws Exception {
+        ResultVo vo=new ResultVo();
+        PageHelper.startPage(pIndex, pSize);
+        List<TModel> lstData= modelService.findAll();
+        PageInfo<TModel> pageData=new PageInfo<>(lstData);
+        vo.setData(pageData.getList());
+        vo.setTotalNum((int) pageData.getTotal());
         return vo;
     }
 }

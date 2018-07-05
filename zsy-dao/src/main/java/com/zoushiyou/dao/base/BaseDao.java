@@ -1,6 +1,7 @@
 package com.zoushiyou.dao.base;
 
 import com.zoushiyou.model.base.BaseModel;
+import java.util.List;
 
 /**
  * 基础接口类
@@ -33,4 +34,9 @@ public interface BaseDao<TModel extends BaseModel> {
      */
     TModel findOne(String pkId);
 
+    /**
+     * 分页数据
+     * @return
+     */
+    List<TModel> findAll();
 }
