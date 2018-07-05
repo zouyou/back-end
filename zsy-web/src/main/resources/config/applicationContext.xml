@@ -6,6 +6,11 @@
     <context:property-placeholder location="classpath:config/jdbc.properties"/> <!-- 自动将Service层注入-->
     <context:component-scan base-package="com.zoushiyou.service.impl"/>
     <!-- dbcp数据源 -->
+    <bean id="stat-filter" class="com.alibaba.druid.filter.stat.StatFilter">
+        <property name="slowSqlMillis" value="10000" />
+        <property name="logSlowSql" value="true" />
+        <property name="mergeSql" value="true" />
+    </bean>
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
           destroy-method="close"> <!--这里如果写成${jdbc.driver}，就会出现加载jdbc驱动失败的问题，暂时不清楚什么原因-->
         <property name="driverClassName" value="${jdbc.driver}"/>
@@ -20,6 +25,12 @@
         <property name="removeAbandoned" value="true"/> <!-- 清除无用连接的等待时间 -->
         <property name="removeAbandonedTimeout" value="180"/> <!-- 连接属性 -->
         <property name="connectionProperties" value="clientEncoding=UTF-8"/>
+        <property name="filters" value="stat,log4j" />
+        <property name="proxyFilters">
+            <list>
+                <ref bean="stat-filter" />
+            </list>
+        </property>
     </bean> <!-- mybatis的配置文件 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
