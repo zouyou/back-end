@@ -16,28 +16,7 @@
         <property name="suffix" value=".jsp"/>
         <property name="order" value="1"/>
     </bean>
-    <!-- 避免IE在ajax请求时，返回json出现下载 -->
-    <!--<bean id="jacksonMessageConverter"-->
-          <!--class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">-->
-        <!--<property name="supportedMediaTypes">-->
-            <!--<list>-->
-                <!--<value>text/html;charset=UTF-8</value>-->
-                <!--<value>application/json;charset=UTF-8</value>-->
-            <!--</list>-->
-        <!--</property>-->
-    <!--</bean> -->
-    <!--Spring3.1开始的注解 HandlerMapping --> <!--3.1之后必须存在， 不解-->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
-    <!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
-    <!--Spring3.1开始的注解 HandlerAdapter -->
-    <!--Spring3.1之前的注解 HandlerAdapter org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter -->
-    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">-->
-        <!--<property name="messageConverters">-->
-            <!--<list>-->
-                <!--<ref bean="jacksonMessageConverter"/> &lt;!&ndash; json转换器 &ndash;&gt;-->
-            <!--</list>-->
-        <!--</property>-->
-    <!--</bean> -->
     <!--文件上传限制-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding" value="UTF-8"/>
