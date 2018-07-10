@@ -5,6 +5,7 @@ import com.zoushiyou.model.dto.ResultVo;
 import com.zoushiyou.service.base.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
  * 父类接口
  * @param <TService>
  */
+@CrossOrigin(origins = "*", maxAge = 3600)
 public abstract class BaseController<TService extends BaseService> {
     @Autowired
     protected TService modelService;
@@ -49,7 +51,8 @@ public abstract class BaseController<TService extends BaseService> {
     public ResultVo writeException(HttpServletRequest request, Exception ex) {
         ResultVo vo = new ResultVo();
         vo.setStatus(500);
-        vo.setMessage("路径:" + request.getServletPath() + " 详情:" + ex.getMessage());
+        System.out.println("错误路径：" + request.getServletPath());
+        vo.setMessage(ex.getMessage());
         return vo;
     }
 }
