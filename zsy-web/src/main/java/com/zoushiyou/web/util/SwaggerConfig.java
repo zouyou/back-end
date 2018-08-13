@@ -25,7 +25,7 @@ public class SwaggerConfig {
         Contact contact = new Contact("QQ:511570155", "https://github.com/zouyou", "511570155@qq.com");
         return new ApiInfoBuilder()
                 .title("后台API接口")
-                .description("后台API接口")
+                .description("")
                 .contact(contact)
                 .version("1.0.1")
                 .build();

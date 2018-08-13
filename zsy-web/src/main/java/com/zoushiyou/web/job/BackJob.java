@@ -18,10 +18,10 @@ public class BackJob {
     public void execute() {
         try {
             System.out.println("后台定时任务：" + System.currentTimeMillis());
-            List<UserInfo> lst = userInfoService.findAll();
-            for(UserInfo userInfo:lst){
-                System.out.println(userInfo.getId());
-            }
+            //List<UserInfo> lst = userInfoService.findAll();
+            //for(UserInfo userInfo:lst){
+              //  System.out.println(userInfo.getId());
+            //}
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

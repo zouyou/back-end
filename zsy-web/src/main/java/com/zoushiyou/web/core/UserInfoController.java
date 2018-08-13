@@ -1,7 +1,7 @@
 package com.zoushiyou.web.core;
 
-import com.zoushiyou.model.dto.ResultVo;
 import com.zoushiyou.model.core.UserInfo;
+import com.zoushiyou.model.dto.ResultVo;
 import com.zoushiyou.service.impl.RoleInfoService;
 import com.zoushiyou.service.impl.UserInfoService;
 import com.zoushiyou.web.base.WebController;
@@ -10,6 +10,7 @@ import com.zoushiyou.web.util.JWTUtil;
 import com.zoushiyou.web.util.ZsyauthorizedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -30,12 +31,13 @@ public class UserInfoController extends WebController<UserInfoService,UserInfo> 
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public ResultVo login(@RequestParam("username") String username, @RequestParam("password") String password) {
         ResultVo vo = new ResultVo();
-        UserInfo user = modelService.findByUserName(username);
-        if(user==null)
-            throw  new ZsyauthorizedException("用户名或者密码错误！");
-        String encodedPassword = Helper.GetMd5Str(password, username + user.getSalt());
+        UserInfo user = modelService.findByUserName(username.trim());
+        if (user == null) {
+            throw new ZsyauthorizedException("账号输入错误!");
+        }
+        String encodedPassword = Helper.GetMd5Str(password, username.trim() + user.getSalt());
         if (!user.getPassWord().equals(encodedPassword)) {
-            throw new ZsyauthorizedException("用户名或者密码错误！");
+            throw new ZsyauthorizedException("密码输入错误!");
         }
         String token= JWTUtil.sign(user.getId(), encodedPassword);
         user.setToken(token);
@@ -51,7 +53,7 @@ public class UserInfoController extends WebController<UserInfoService,UserInfo> 
     @RequestMapping(value = "/hasUserName",method = RequestMethod.GET)
     public ResultVo hasUserName(@RequestParam("username") String username) {
         ResultVo vo=new ResultVo();
-        UserInfo fInfo = modelService.findByUserName(username);
+        UserInfo fInfo = modelService.findByUserName(username.trim());
         if (fInfo != null) {
             throw new ZsyauthorizedException("用户名已添加，请重新输入！");
         }

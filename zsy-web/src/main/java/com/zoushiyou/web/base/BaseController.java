@@ -3,7 +3,6 @@ package com.zoushiyou.web.base;
 import com.zoushiyou.model.base.BaseModel;
 import com.zoushiyou.model.dto.ResultVo;
 import com.zoushiyou.service.base.BaseService;
-import net.bytebuddy.implementation.bind.annotation.RuntimeType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -52,7 +51,7 @@ public abstract class BaseController<TService extends BaseService> {
     public ResultVo writeException(HttpServletRequest request, Exception ex) {
         ResultVo vo = new ResultVo();
         vo.setStatus(500);
-        System.out.println("错误路径：" + request.getServletPath());
+        System.out.println("捕捉错误，请求路径：" + request.getServletPath() + ",请求参数:" + request.getQueryString());
         vo.setMessage(ex.getMessage());
         return vo;
     }
