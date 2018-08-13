@@ -9,8 +9,8 @@
         <result column="name" property="name" jdbcType="VARCHAR" />
         <result column="remarks" property="remarks" jdbcType="VARCHAR" />
         <result column="sortNum" property="sortNum" jdbcType="INTEGER" />
-        <result column="isEnable" property="isEnable" jdbcType="BIT" />
-        <result column="isDelete" property="isDelete" jdbcType="BIT" />
+        <result column="is_Enable" property="is_Enable" jdbcType="BIT" />
+        <result column="is_Delete" property="is_Delete" jdbcType="BIT" />
         <result column="ownerId" property="ownerId" jdbcType="VARCHAR" />
         <result column="createId" property="createId" jdbcType="VARCHAR" />
         <result column="updateId" property="updateId" jdbcType="VARCHAR" />
@@ -21,19 +21,19 @@
         <result column="levelVal" property="levelVal" jdbcType="INTEGER" />
     </resultMap>
     <sql id="Base_Column_List" >
-    id, parentId, version, code, name, remarks, sortNum, isEnable, isDelete, ownerId,
+    id, parentId, version, code, name, remarks, sortNum, is_Enable, is_Delete, ownerId,
     createId, updateId, createTime, updateTime,roleId,funcId,levelVal
     </sql>
     <insert id="insertOne" parameterType="com.zoushiyou.model.core.RoleJoinFunc" >
     insert into tb_rolejoinfunc (id, parentId, version,
       code, name, remarks,
-      sortNum, isEnable, isDelete,
+      sortNum, is_Enable, is_Delete,
       ownerId, createId, updateId,
       createTime, updateTime, roleId,
       funcId, levelVal)
     values (#{id,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR}, #{version,jdbcType=INTEGER},
       #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR},
-      #{sortNum,jdbcType=INTEGER}, #{isEnable,jdbcType=BIT}, #{isDelete,jdbcType=BIT},
+      #{sortNum,jdbcType=INTEGER}, #{is_Enable,jdbcType=BIT}, #{is_Delete,jdbcType=BIT},
       #{ownerId,jdbcType=VARCHAR}, #{createId,jdbcType=VARCHAR}, #{updateId,jdbcType=VARCHAR},
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{roleId,jdbcType=VARCHAR},
       #{funcId,jdbcType=VARCHAR}, #{levelVal,jdbcType=INTEGER})
@@ -46,8 +46,8 @@
       name = #{name,jdbcType=VARCHAR},
       remarks = #{remarks,jdbcType=VARCHAR},
       sortNum = #{sortNum,jdbcType=INTEGER},
-      isEnable = #{isEnable,jdbcType=BIT},
-      isDelete = #{isDelete,jdbcType=BIT},
+      is_Enable = #{is_Enable,jdbcType=BIT},
+      is_Delete = #{is_Delete,jdbcType=BIT},
       ownerId = #{ownerId,jdbcType=VARCHAR},
       updateId = #{updateId,jdbcType=VARCHAR},
       updateTime = #{updateTime,jdbcType=TIMESTAMP},
@@ -57,7 +57,7 @@
     where id = #{id,jdbcType=VARCHAR}
     </update>
     <update id="deleteOne" parameterType="java.lang.String" >
-       update tb_rolejoinfunc set isDelete = 1 where id = #{id,jdbcType=VARCHAR}
+       update tb_rolejoinfunc set is_Delete = 1 where id = #{id,jdbcType=VARCHAR}
     </update>
     <select id="findOne" resultMap="BaseResultMap" parameterType="java.lang.String" >
         select

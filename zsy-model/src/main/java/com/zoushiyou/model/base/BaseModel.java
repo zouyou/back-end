@@ -38,11 +38,11 @@ public abstract class BaseModel {
     /**
      * 是否可用 1:可用，0:禁用
      */
-    protected boolean isEnable;
+    protected boolean is_Enable;
     /**
      * 是否删除 1：删除，0：正常
      */
-    protected boolean isDelete;
+    protected boolean is_Delete;
     /**
      * 拥有人Id
      */
@@ -120,20 +120,20 @@ public abstract class BaseModel {
         this.sortNum = sortNum;
     }
 
-    public boolean isEnable() {
-        return isEnable;
+    public boolean isIs_Enable() {
+        return is_Enable;
     }
 
-    public void setEnable(boolean enable) {
-        isEnable = enable;
+    public void setIs_Enable(boolean is_Enable) {
+        this.is_Enable = is_Enable;
     }
 
-    public boolean isDelete() {
-        return isDelete;
+    public boolean isIs_Delete() {
+        return is_Delete;
     }
 
-    public void setDelete(boolean delete) {
-        isDelete = delete;
+    public void setIs_Delete(boolean is_Delete) {
+        this.is_Delete = is_Delete;
     }
 
     public String getOwnerId() {

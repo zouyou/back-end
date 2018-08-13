@@ -23,7 +23,7 @@ public class UserInfo extends BaseModel {
     /**
      * 性别 1：男 0：女
      */
-    private boolean isMale;
+    private boolean is_Male;
     /**
      * 手机号码
      */
@@ -57,12 +57,12 @@ public class UserInfo extends BaseModel {
         this.salt = salt;
     }
 
-    public boolean isMale() {
-        return isMale;
+    public boolean isIs_Male() {
+        return is_Male;
     }
 
-    public void setMale(boolean male) {
-        isMale = male;
+    public void setIs_Male(boolean is_Male) {
+        this.is_Male = is_Male;
     }
 
     public String getPhoneNum() {
