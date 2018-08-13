@@ -1,4 +1,4 @@
-package com.zoushiyou.web.core;
+package com.zoushiyou.web.restful;
 
 import com.zoushiyou.model.core.Student;
 import com.zoushiyou.service.impl.StudentService;

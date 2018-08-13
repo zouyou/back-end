@@ -3,6 +3,7 @@ package com.zoushiyou.web.base;
 import com.zoushiyou.model.base.BaseModel;
 import com.zoushiyou.model.dto.ResultVo;
 import com.zoushiyou.service.base.BaseService;
+import net.bytebuddy.implementation.bind.annotation.RuntimeType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 角色权限
+ * 角色
  * QQ:511570155
  */
 @RestController
-@RequestMapping(value = "/v1/role-func")
-public class RoleFuncController extends WebController<RoleInfoService,RoleInfo> {
+@RequestMapping(value = "/v1/roleInfo")
+public class RoleInfoController extends WebController<RoleInfoService,RoleInfo> {
 }
