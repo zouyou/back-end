@@ -11,29 +11,29 @@ public class RoleJoinFunc extends BaseModel {
     /**
      * 角色Id
      */
-    private String roleId;
+    private long roleId;
     /**
      * 功能Id
      */
-    private String funcId;
+    private long funcId;
     /**
      * 级别值域（1.功能权限 2.数据权限）
      */
     private Integer levelVal;
 
-    public String getRoleId() {
+    public long getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(String roleId) {
+    public void setRoleId(long roleId) {
         this.roleId = roleId;
     }
 
-    public String getFuncId() {
+    public long getFuncId() {
         return funcId;
     }
 
-    public void setFuncId(String funcId) {
+    public void setFuncId(long funcId) {
         this.funcId = funcId;
     }
 

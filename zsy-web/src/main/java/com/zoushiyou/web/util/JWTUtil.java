@@ -42,10 +42,10 @@ public class JWTUtil {
      *
      * @return token中包含的用户Id
      */
-    public static String getUserId(String token) {
+    public static long getUserId(String token) {
         try {
             DecodedJWT jwt = JWT.decode(token);
-            return jwt.getClaim("userId").asString();
+            return jwt.getClaim("userId").asLong();
         } catch (JWTDecodeException e) {
             throw new JWTDecodeException("用户信息格式错误！");
         }
@@ -58,7 +58,7 @@ public class JWTUtil {
      * @param secret 用户的密码
      * @return 加密的token
      */
-    public static String sign(String userId, String secret) {
+    public static String sign(long userId, String secret) {
         try {
             Date date = new Date(System.currentTimeMillis() + EXPIRE_TIME);
             Algorithm algorithm = Algorithm.HMAC256(secret);

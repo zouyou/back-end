@@ -3,6 +3,7 @@ package com.zoushiyou.web.base;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.zoushiyou.model.base.BaseModel;
+import com.zoushiyou.model.base.IDSnowFlake;
 import com.zoushiyou.model.dto.ResultVo;
 import com.zoushiyou.service.base.BaseService;
 import com.zoushiyou.web.util.Helper;
@@ -25,6 +26,10 @@ import java.util.List;
  */
 public abstract class WebController<TService extends BaseService,TModel extends BaseModel>
         extends BaseController<TService> {
+    protected IDSnowFlake idSnowFlake;
+    public WebController(){
+        idSnowFlake=new IDSnowFlake(2,3);
+    }
 
     @RequestMapping(value = "/insertOne", method = RequestMethod.POST)
     public synchronized ResultVo insertOne(HttpServletRequest request, @RequestBody TModel model) throws Exception {
@@ -32,10 +37,8 @@ public abstract class WebController<TService extends BaseService,TModel extends 
         String authorization = request.getHeader("Authorization");
         if (authorization == null)
             throw new ZsyauthorizedException("没有登录信息！");
-        String userId = JWTUtil.getUserId(authorization);
-        if (userId == null)
-            throw new ZsyauthorizedException("用户信息错误！");
-        model.setId(Helper.GetUUID());
+        long userId = JWTUtil.getUserId(authorization);
+        model.setId(idSnowFlake.nextId());//雪花算法ID
         model.setVersion(1);
         model.setOwnerId(userId);
         model.setCreateId(userId);
@@ -54,9 +57,7 @@ public abstract class WebController<TService extends BaseService,TModel extends 
         String authorization = request.getHeader("Authorization");
         if (authorization == null)
             throw new ZsyauthorizedException("没有登录信息！");
-        String userId = JWTUtil.getUserId(authorization);
-        if (userId == null)
-            throw new ZsyauthorizedException("用户信息错误！");
+        long userId = JWTUtil.getUserId(authorization);
         model.setUpdateId(userId);
         model.setUpdateTime(new Date());
         Boolean isRow = modelService.updateOne(model);

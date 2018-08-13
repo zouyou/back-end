@@ -26,13 +26,13 @@ public interface BaseDao<TModel extends BaseModel> {
      * @param pkId
      * @return
      */
-    Boolean deleteOne(String pkId);
+    Boolean deleteOne(Long pkId);
     /**
      * 查询一条数据
      * @param pkId
      * @return
      */
-    TModel findOne(String pkId);
+    TModel findOne(Long pkId);
 
     /**
      * 分页数据

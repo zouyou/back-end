@@ -28,13 +28,13 @@ public interface IBaseService<TModel extends BaseModel> {
      * @param pkId
      * @return
      */
-    Boolean deleteOne(String pkId);
+    Boolean deleteOne(long pkId);
     /**
      * 查询一条数据
      * @param pkId
      * @return
      */
-    TModel findOne(String pkId);
+    TModel findOne(long pkId);
 
     /**
      * 分页数据

@@ -10,11 +10,11 @@ public abstract class BaseModel {
     /**
      * 主键标识
      */
-    protected String id;
+    protected Long id;
     /**
      * 父级主键标识
      */
-    protected String parentId;
+    protected Long parentId;
     /**
      * 版本
      */
@@ -46,15 +46,15 @@ public abstract class BaseModel {
     /**
      * 拥有人Id
      */
-    protected String ownerId;
+    protected Long ownerId;
     /**
      * 创建者Id
      */
-    protected String createId;
+    protected Long createId;
     /**
      * 修改者Id
      */
-    protected String updateId;
+    protected Long updateId;
     /**
      * 创建时间
      */
@@ -64,19 +64,19 @@ public abstract class BaseModel {
      */
     protected Date updateTime;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getParentId() {
+    public Long getParentId() {
         return parentId;
     }
 
-    public void setParentId(String parentId) {
+    public void setParentId(Long parentId) {
         this.parentId = parentId;
     }
 
@@ -136,27 +136,27 @@ public abstract class BaseModel {
         this.is_Delete = is_Delete;
     }
 
-    public String getOwnerId() {
+    public Long getOwnerId() {
         return ownerId;
     }
 
-    public void setOwnerId(String ownerId) {
+    public void setOwnerId(Long ownerId) {
         this.ownerId = ownerId;
     }
 
-    public String getCreateId() {
+    public Long getCreateId() {
         return createId;
     }
 
-    public void setCreateId(String createId) {
+    public void setCreateId(Long createId) {
         this.createId = createId;
     }
 
-    public String getUpdateId() {
+    public Long getUpdateId() {
         return updateId;
     }
 
-    public void setUpdateId(String updateId) {
+    public void setUpdateId(Long updateId) {
         this.updateId = updateId;
     }
 

@@ -16,7 +16,7 @@ public class Attachments extends BaseModel {
     /**
      * 外键Id
      */
-    private String fkPkId;
+    private long fkPkId;
     /**
      * 扩展名
      */
@@ -35,11 +35,11 @@ public class Attachments extends BaseModel {
         this.fkType = fkType;
     }
 
-    public String getFkPkId() {
+    public long getFkPkId() {
         return fkPkId;
     }
 
-    public void setFkPkId(String fkPkId) {
+    public void setFkPkId(long fkPkId) {
         this.fkPkId = fkPkId;
     }
 

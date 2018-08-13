@@ -17,14 +17,12 @@ public abstract class BaseService<TBaseDao extends BaseDao, TModel extends BaseM
         return modelDao.insertOne(model);
     }
 
-    public Boolean deleteOne(String pkId) {
+    public Boolean deleteOne(long pkId) {
         return modelDao.deleteOne(pkId);
     }
 
-    public TModel findOne(String pkId) {
-        TModel vo=(TModel) modelDao.findOne(pkId);
-        return vo;
-    }
+    public TModel findOne(long pkId) { return (TModel) modelDao.findOne(pkId); }
+
     public List<TModel> findAll(){
         return modelDao.findAll();
     }

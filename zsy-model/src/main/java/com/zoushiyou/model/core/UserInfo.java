@@ -31,11 +31,11 @@ public class UserInfo extends BaseModel {
     /**
      * 用户角色Id
      */
-    private String roleId;
+    private long roleId;
     /**
      * 部门Id
      */
-    private String deptId;
+    private long deptId;
     /**
      * 标识
      */
@@ -73,19 +73,19 @@ public class UserInfo extends BaseModel {
         this.phoneNum = phoneNum;
     }
 
-    public String getRoleId() {
+    public long getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(String roleId) {
+    public void setRoleId(long roleId) {
         this.roleId = roleId;
     }
 
-    public String getDeptId() {
+    public long getDeptId() {
         return deptId;
     }
 
-    public void setDeptId(String deptId) {
+    public void setDeptId(long deptId) {
         this.deptId = deptId;
     }
 

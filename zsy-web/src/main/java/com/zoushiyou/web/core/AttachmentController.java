@@ -32,7 +32,7 @@ public class AttachmentController extends WebController<AttachmentService, Attac
 
     @RequestMapping(value = "/doUploadFile", method = RequestMethod.POST)
     public ResultVo doUploadFile(HttpServletRequest request,
-                                 @RequestParam("fkType") Integer fkType, @RequestParam("fkPkId") String fkPkId,
+                                 @RequestParam("fkType") Integer fkType, @RequestParam("fkPkId") long fkPkId,
                                  @RequestParam("file") MultipartFile file) throws Exception {
         String fileName = file.getOriginalFilename();
         try {

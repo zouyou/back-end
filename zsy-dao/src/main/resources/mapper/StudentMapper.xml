@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.zoushiyou.dao.core.StudentDao" >
     <resultMap id="BaseResultMap" type="com.zoushiyou.model.core.Student" >
-        <result column="id" property="id" jdbcType="VARCHAR" />
-        <result column="parentId" property="parentId" jdbcType="VARCHAR" />
+        <result column="id" property="id" jdbcType="BIGINT" />
+        <result column="parentId" property="parentId" jdbcType="BIGINT" />
         <result column="version" property="version" jdbcType="INTEGER" />
         <result column="code" property="code" jdbcType="VARCHAR" />
         <result column="name" property="name" jdbcType="VARCHAR" />
@@ -11,9 +11,9 @@
         <result column="sortNum" property="sortNum" jdbcType="INTEGER" />
         <result column="is_Enable" property="is_Enable" jdbcType="BIT" />
         <result column="is_Delete" property="is_Delete" jdbcType="BIT" />
-        <result column="ownerId" property="ownerId" jdbcType="VARCHAR" />
-        <result column="createId" property="createId" jdbcType="VARCHAR" />
-        <result column="updateId" property="updateId" jdbcType="VARCHAR" />
+        <result column="ownerId" property="ownerId" jdbcType="BIGINT" />
+        <result column="createId" property="createId" jdbcType="BIGINT" />
+        <result column="updateId" property="updateId" jdbcType="BIGINT" />
         <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
         <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
     </resultMap>
@@ -27,15 +27,15 @@
       sortNum, is_Enable, is_Delete,
       ownerId, createId, updateId,
       createTime, updateTime)
-    values (#{id,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR}, #{version,jdbcType=INTEGER},
+    values (#{id,jdbcType=BIGINT}, #{parentId,jdbcType=BIGINT}, #{version,jdbcType=INTEGER},
       #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR},
       #{sortNum,jdbcType=INTEGER}, #{is_Enable,jdbcType=BIT}, #{is_Delete,jdbcType=BIT},
-      #{ownerId,jdbcType=VARCHAR}, #{createId,jdbcType=VARCHAR}, #{updateId,jdbcType=VARCHAR},
+      #{ownerId,jdbcType=BIGINT}, #{createId,jdbcType=BIGINT}, #{updateId,jdbcType=BIGINT},
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
     <update id="updateOne" parameterType="com.zoushiyou.model.core.Student" >
     update tb_student
-    set parentId = #{parentId,jdbcType=VARCHAR},
+    set parentId = #{parentId,jdbcType=BIGINT},
       version = version+1,
       code = #{code,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
@@ -43,18 +43,16 @@
       sortNum = #{sortNum,jdbcType=INTEGER},
       is_Enable = #{is_Enable,jdbcType=BIT},
       is_Delete = #{is_Delete,jdbcType=BIT},
-      ownerId = #{ownerId,jdbcType=VARCHAR},
-      updateId = #{updateId,jdbcType=VARCHAR},
+      ownerId = #{ownerId,jdbcType=BIGINT},
+      updateId = #{updateId,jdbcType=BIGINT},
       updateTime = #{updateTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
     </update>
-    <update id="deleteOne" parameterType="java.lang.String" >
-       update tb_student set is_Delete = 1 where id = #{id,jdbcType=VARCHAR}
+    <update id="deleteOne" parameterType="java.lang.Long" >
+       update tb_student set is_Delete = 1 where id = #{id,jdbcType=BIGINT}
     </update>
-    <select id="findOne" resultMap="BaseResultMap" parameterType="java.lang.String" >
-        select
-        <include refid="Base_Column_List" />
-        from tb_student where id = #{id,jdbcType=VARCHAR}
+    <select id="findOne" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+        select <include refid="Base_Column_List" /> from tb_student where id = #{id,jdbcType=BIGINT}
     </select>
     <select id="findAll" resultMap="BaseResultMap" >
         select <include refid="Base_Column_List" /> from tb_student

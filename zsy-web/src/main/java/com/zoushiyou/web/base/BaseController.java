@@ -19,7 +19,7 @@ public abstract class BaseController<TService extends BaseService> {
     protected TService modelService;
 
     @RequestMapping(value = "/findOne", method = RequestMethod.GET)
-    public ResultVo findOne(@RequestParam("id") String id) throws Exception {
+    public ResultVo findOne(@RequestParam("id") long id) throws Exception {
         ResultVo vo=new ResultVo();
         BaseModel model = modelService.findOne(id);
         if (model == null)
@@ -30,7 +30,7 @@ public abstract class BaseController<TService extends BaseService> {
     }
 
     @RequestMapping(value = "/deleteOne", method = RequestMethod.GET)
-    public ResultVo deleteOne(@RequestParam("id") String id) throws Exception {
+    public ResultVo deleteOne(@RequestParam("id") long id) throws Exception {
         ResultVo vo=new ResultVo();
         Boolean isRow = modelService.deleteOne(id);
         if (!isRow)
