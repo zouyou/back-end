@@ -2,7 +2,11 @@ package com.zoushiyou.service.base;
 
 import com.zoushiyou.dao.base.BaseDao;
 import com.zoushiyou.model.base.BaseModel;
+import com.zoushiyou.model.dto.BaseDto;
+import com.zoushiyou.model.dto.CommonDto;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BaseService<TBaseDao extends BaseDao, TModel extends BaseModel> implements IBaseService<TModel> {
@@ -26,4 +30,5 @@ public abstract class BaseService<TBaseDao extends BaseDao, TModel extends BaseM
     public List<TModel> findAll(){
         return modelDao.findAll();
     }
+
 }

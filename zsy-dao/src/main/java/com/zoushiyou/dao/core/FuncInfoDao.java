@@ -3,6 +3,7 @@ package com.zoushiyou.dao.core;
 import com.zoushiyou.dao.base.BaseDao;
 import com.zoushiyou.model.core.FuncInfo;
 import org.springframework.stereotype.Repository;
+import java.util.List;
 
 /**
  * 功能
@@ -11,4 +12,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface FuncInfoDao extends BaseDao<FuncInfo> {
+    List<FuncInfo> findByRoleId(long roleId);
 }

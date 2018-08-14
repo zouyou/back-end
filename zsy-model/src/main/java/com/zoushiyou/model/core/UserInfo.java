@@ -36,10 +36,6 @@ public class UserInfo extends BaseModel {
      * 部门Id
      */
     private long deptId;
-    /**
-     * 标识
-     */
-    private String token;
 
     public String getPassWord() {
         return passWord;
@@ -89,11 +85,4 @@ public class UserInfo extends BaseModel {
         this.deptId = deptId;
     }
 
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
 }

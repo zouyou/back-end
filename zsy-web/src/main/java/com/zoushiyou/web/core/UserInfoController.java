@@ -2,6 +2,8 @@ package com.zoushiyou.web.core;
 
 import com.zoushiyou.model.core.UserInfo;
 import com.zoushiyou.model.dto.ResultVo;
+import com.zoushiyou.model.dto.UserLoginInfoDto;
+import com.zoushiyou.service.impl.DeptInfoService;
 import com.zoushiyou.service.impl.RoleInfoService;
 import com.zoushiyou.service.impl.UserInfoService;
 import com.zoushiyou.web.base.WebController;
@@ -21,6 +23,8 @@ import javax.servlet.http.HttpServletRequest;
 public class UserInfoController extends WebController<UserInfoService,UserInfo> {
     @Autowired
     RoleInfoService roleInfoService;
+    @Autowired
+    DeptInfoService deptInfoService;
 
     /**
      * 登录系统
@@ -32,16 +36,18 @@ public class UserInfoController extends WebController<UserInfoService,UserInfo> 
     public ResultVo login(@RequestParam("username") String username, @RequestParam("password") String password) {
         ResultVo vo = new ResultVo();
         UserInfo user = modelService.findByUserName(username.trim());
-        if (user == null) {
+        if (user == null)
             throw new ZsyauthorizedException("账号输入错误!");
-        }
         String encodedPassword = Helper.GetMd5Str(password, username.trim() + user.getSalt());
-        if (!user.getPassWord().equals(encodedPassword)) {
+        if (!user.getPassWord().equals(encodedPassword))
             throw new ZsyauthorizedException("密码输入错误!");
-        }
+        if (!user.getIs_Enable())
+            throw new ZsyauthorizedException("账号没有激活,请联系管理人员！");
+        if (user.getIs_Delete())
+            throw new ZsyauthorizedException("账号已经删除,请联系管理人员！");
         String token= JWTUtil.sign(user.getId(), encodedPassword);
-        user.setToken(token);
-        vo.setData(user);
+        UserLoginInfoDto userLoginInfoDto = modelService.buildLoginData(user, token);
+        vo.setData(userLoginInfoDto);
         return vo;
     }
 

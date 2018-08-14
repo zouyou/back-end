@@ -64,5 +64,11 @@
     </select>
     <select id="findAll" resultMap="BaseResultMap" >
         select <include refid="Base_Column_List" /> from tb_funcinfo
+        where is_Enable=1 and is_Delete=0 order by sortNum
+    </select>
+    <select id="findByRoleId" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+        select t1.* from tb_funcinfo t1
+        INNER JOIN tb_rolejoinfunc t2 ON t2.`funcId`=t1.`id`
+        WHERE t2.roleId=#{roleId,jdbcType=BIGINT} and t1.is_Enable=1 and t1.is_Delete=0 order by t1.sortNum
     </select>
 </mapper>

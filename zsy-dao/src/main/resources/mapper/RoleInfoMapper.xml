@@ -56,5 +56,6 @@
     </select>
     <select id="findAll" resultMap="BaseResultMap" >
         select <include refid="Base_Column_List" /> from tb_roleinfo
+        where is_Enable=1 and is_Delete=0 order by sortNum
     </select>
 </mapper>

@@ -10,55 +10,55 @@ public abstract class BaseModel {
     /**
      * 主键标识
      */
-    protected Long id;
+    protected Long id = 0L;
     /**
      * 父级主键标识
      */
-    protected Long parentId;
+    protected Long parentId = 0L;
     /**
      * 版本
      */
-    protected Integer version;
+    protected Integer version = 1;
     /**
      * 编码
      */
-    protected String code;
+    protected String code = "";
     /**
      * 名称
      */
-    protected String name;
+    protected String name = "";
     /**
      * 备注
      */
-    protected String remarks;
+    protected String remarks = "";
     /**
      * 排序数字
      */
-    protected Integer sortNum;
+    protected Integer sortNum = 1;
     /**
      * 是否可用 1:可用，0:禁用
      */
-    protected boolean is_Enable;
+    protected boolean is_Enable = false;
     /**
      * 是否删除 1：删除，0：正常
      */
-    protected boolean is_Delete;
+    protected boolean is_Delete = true;
     /**
      * 拥有人Id
      */
-    protected Long ownerId;
+    protected Long ownerId = 0L;
     /**
      * 创建者Id
      */
-    protected Long createId;
+    protected Long createId = 0L;
     /**
      * 修改者Id
      */
-    protected Long updateId;
+    protected Long updateId = 0L;
     /**
      * 创建时间
      */
-    protected Date createTime;
+    protected Date createTime = new Date();
     /**
      * 修改时间
      */
@@ -120,7 +120,7 @@ public abstract class BaseModel {
         this.sortNum = sortNum;
     }
 
-    public boolean isIs_Enable() {
+    public boolean getIs_Enable() {
         return is_Enable;
     }
 
@@ -128,7 +128,7 @@ public abstract class BaseModel {
         this.is_Enable = is_Enable;
     }
 
-    public boolean isIs_Delete() {
+    public boolean getIs_Delete() {
         return is_Delete;
     }
 

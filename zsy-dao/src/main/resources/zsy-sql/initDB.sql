@@ -13,7 +13,7 @@ MySQL - 5.7.22 : Database - db_test
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_test` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE IF NOT EXISTS `db_test` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
 USE `db_test`;
 
@@ -171,7 +171,7 @@ CREATE TABLE `tb_userinfo` (
   `id` BIGINT PRIMARY KEY NOT NULL COMMENT '主键Id',
   `parentId` BIGINT DEFAULT NULL COMMENT '父级主键Id',
   `version` int(11) DEFAULT '1' COMMENT '版本',
-  `code` varchar(50) DEFAULT NULL COMMENT '编码(用户名)',
+  `code` varchar(50) UNIQUE DEFAULT NULL COMMENT '编码(用户名)',
   `name` varchar(50) DEFAULT NULL COMMENT '名称(昵称)',
   `remarks` varchar(150) DEFAULT NULL COMMENT '备注',
   `sortNum` int(11) DEFAULT '1' COMMENT '排序数字',
@@ -227,4 +227,90 @@ CREATE TABLE `tb_attachments` (
 
  INSERT INTO tb_userinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
       ownerId, createId, updateId,createTime, updateTime, PASSWORD,is_Male, phoneNum, roleId,deptId,salt)
- VALUES (1, 0, 1,'admin', '系统', '超级管理员',1, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8', 'e97ab12c758201995e51635e2e78cd33',1, '15812345678', 1,1,'8b4757dc-99d6-446f-907a-d4b8f6060a8e')
+ VALUES (1, 0, 1,'admin', '系统', '超级管理员',1, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8', 'e97ab12c758201995e51635e2e78cd33',1, '15812345678', 1,1,'8b4757dc-99d6-446f-907a-d4b8f6060a8e');
+
+  INSERT INTO tb_roleinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime)
+ VALUES (1, 0, 1,'1', '超级管理员', '',1, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8');
+
+   INSERT INTO tb_roleinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime)
+ VALUES (2, 0, 1,'2', '管理员', '',2, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8');
+
+
+ INSERT INTO tb_deptinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime)
+ VALUES (1, 0, 1,'1', '开发部', '',1, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8');
+
+   INSERT INTO tb_deptinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime)
+ VALUES (2, 0, 1,'2', '销售部', '',2, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8');
+
+
+     INSERT INTO tb_funcinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime,routePath,styleName,levelVal)
+ VALUES (1, 0, 1,'/index', '首页', '',1, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8','/index','el-icon-goods',1);
+     INSERT INTO tb_funcinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime,routePath,styleName,levelVal)
+ VALUES (2, 0, 1,'2', '学生管理', '',2, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8','2','el-icon-message',1);
+     INSERT INTO tb_funcinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime,routePath,styleName,levelVal)
+ VALUES (3, 0, 1,'3', '系统管理', '',3, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8','3','el-icon-service',1);
+
+
+     INSERT INTO tb_funcinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime,routePath,styleName,levelVal)
+ VALUES (4, 3, 1,'/role', '角色管理', '',4, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8','/role','',2);
+    INSERT INTO tb_funcinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime,routePath,styleName,levelVal)
+ VALUES (5, 3, 1,'/user', '用户管理', '',5, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8','/user','',2);
+    INSERT INTO tb_funcinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime,routePath,styleName,levelVal)
+ VALUES (6, 3, 1,'/func', '功能管理', '',6, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8','/func','',2);
+    INSERT INTO tb_funcinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime,routePath,styleName,levelVal)
+ VALUES (7, 3, 1,'/const', '常量管理', '',7, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8','/const','',2);
+    INSERT INTO tb_funcinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime,routePath,styleName,levelVal)
+ VALUES (8, 3, 1,'/flow', '流程管理', '',8, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8','/flow','',2);
+    INSERT INTO tb_funcinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime,routePath,styleName,levelVal)
+ VALUES (9, 3, 1,'/syslog', '日志管理', '',9, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8','/syslog','',2);
+
+     INSERT INTO tb_funcinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime,routePath,styleName,levelVal)
+ VALUES (10, 2, 1,'/student', '学生列表', '',9, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8','/student','',2);
+
+      INSERT INTO tb_rolejoinfunc (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime,roleId,funcId,levelVal)
+ VALUES (1, 0, 1,'', '', '',1, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8',1,1,1);
+      INSERT INTO tb_rolejoinfunc (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime,roleId,funcId,levelVal)
+ VALUES (2, 0, 1,'', '', '',1, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8',1,2,1);
+      INSERT INTO tb_rolejoinfunc (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime,roleId,funcId,levelVal)
+ VALUES (3, 0, 1,'', '', '',1, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8',1,3,1);
+      INSERT INTO tb_rolejoinfunc (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime,roleId,funcId,levelVal)
+ VALUES (4, 0, 1,'', '', '',1, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8',1,4,1);
+      INSERT INTO tb_rolejoinfunc (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime,roleId,funcId,levelVal)
+ VALUES (5, 0, 1,'', '', '',1, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8',1,5,1);
+      INSERT INTO tb_rolejoinfunc (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime,roleId,funcId,levelVal)
+ VALUES (6, 0, 1,'', '', '',1, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8',1,6,1);
+      INSERT INTO tb_rolejoinfunc (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime,roleId,funcId,levelVal)
+ VALUES (7, 0, 1,'', '', '',1, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8',1,7,1);
+      INSERT INTO tb_rolejoinfunc (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime,roleId,funcId,levelVal)
+ VALUES (8, 0, 1,'', '', '',1, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8',1,8,1);
+      INSERT INTO tb_rolejoinfunc (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime,roleId,funcId,levelVal)
+ VALUES (9, 0, 1,'', '', '',1, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8',1,9,1);
+       INSERT INTO tb_rolejoinfunc (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime,roleId,funcId,levelVal)
+ VALUES (10, 0, 1,'', '', '',1, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8',1,10,1);
+
+
+

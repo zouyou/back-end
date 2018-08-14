@@ -71,8 +71,10 @@
     </select>
     <select id="findAll" resultMap="BaseResultMap" >
         select <include refid="Base_Column_List" /> from tb_userinfo
+        where is_Enable=1 and is_Delete=0 order by sortNum
     </select>
     <select id="findByUserName" resultMap="BaseResultMap" parameterType="java.lang.String">
-        select <include refid="Base_Column_List"/>  from tb_userinfo where code = #{username,jdbcType=VARCHAR}
+        select <include refid="Base_Column_List"/>  from tb_userinfo
+        where code = #{username,jdbcType=VARCHAR}
     </select>
 </mapper>
