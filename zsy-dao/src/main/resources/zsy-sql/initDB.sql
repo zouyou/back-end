@@ -227,7 +227,7 @@ CREATE TABLE `tb_attachments` (
 
  INSERT INTO tb_userinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
       ownerId, createId, updateId,createTime, updateTime, PASSWORD,is_Male, phoneNum, roleId,deptId,salt)
- VALUES (1, 0, 1,'admin', '系统', '超级管理员',1, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8', 'e97ab12c758201995e51635e2e78cd33',1, '15812345678', 1,1,'8b4757dc-99d6-446f-907a-d4b8f6060a8e');
+ VALUES (1, 0, 1,'admin', '超级用户', '超级管理员',1, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8', 'e97ab12c758201995e51635e2e78cd33',1, '15812345678', 1,1,'8b4757dc-99d6-446f-907a-d4b8f6060a8e');
 
   INSERT INTO tb_roleinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
       ownerId, createId, updateId,createTime, updateTime)
