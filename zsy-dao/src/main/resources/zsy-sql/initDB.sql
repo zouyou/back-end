@@ -263,7 +263,7 @@ CREATE TABLE `tb_attachments` (
  VALUES (4, 3, 1,'/role', '角色管理', '',4, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8','/role','',2);
     INSERT INTO tb_funcinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
       ownerId, createId, updateId,createTime, updateTime,routePath,styleName,levelVal)
- VALUES (5, 3, 1,'/user', '用户管理', '',5, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8','/user','',2);
+ VALUES (5, 3, 1,'/user-index', '用户管理', '',5, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8','/user-index','',2);
     INSERT INTO tb_funcinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
       ownerId, createId, updateId,createTime, updateTime,routePath,styleName,levelVal)
  VALUES (6, 3, 1,'/func', '功能管理', '',6, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8','/func','',2);
@@ -279,7 +279,7 @@ CREATE TABLE `tb_attachments` (
 
      INSERT INTO tb_funcinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
       ownerId, createId, updateId,createTime, updateTime,routePath,styleName,levelVal)
- VALUES (10, 2, 1,'/student', '学生列表', '',9, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8','/student','',2);
+ VALUES (10, 2, 1,'/student', '学生列表', '',10, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8','/student','',2);
 
       INSERT INTO tb_rolejoinfunc (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
       ownerId, createId, updateId,createTime, updateTime,roleId,funcId,levelVal)

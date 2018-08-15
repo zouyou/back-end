@@ -50,14 +50,14 @@ public class UserInfoService extends BaseService<UserInfoDao,UserInfo> {
         List<FuncInfoDto> lstFunc = new ArrayList<FuncInfoDto>();
         if (listFuncInfo != null) {
             for (FuncInfo funcInfo : listFuncInfo) {
-                if (funcInfo.getParentId() == 0L) {
+                if (funcInfo.getParentId() == 0L && funcInfo.getLevelVal() == 1) {
                     FuncInfoDto itemDto = new FuncInfoDto(funcInfo);
                     lstFunc.add(itemDto);
                 }
             }
             for (FuncInfoDto itemDto : lstFunc) {
                 for (FuncInfo funcInfo : listFuncInfo) {
-                    if (itemDto.getId() == funcInfo.getParentId()) {
+                    if (itemDto.getId() == funcInfo.getParentId() && funcInfo.getLevelVal() == 2) {
                         if (itemDto.getSubItem() == null) {
                             List<FuncInfoDto> sublstFunc = new ArrayList<FuncInfoDto>();
                             sublstFunc.add(new FuncInfoDto(funcInfo));
