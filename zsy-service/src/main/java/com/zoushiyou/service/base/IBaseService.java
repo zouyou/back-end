@@ -1,6 +1,8 @@
 package com.zoushiyou.service.base;
 
 import com.zoushiyou.model.base.BaseModel;
+
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -40,5 +42,5 @@ public interface IBaseService<TModel extends BaseModel> {
      * 分页数据
      * @return
      */
-    List<TModel> findAll();
+    List<TModel> findAll(HttpServletRequest request);
 }

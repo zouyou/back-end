@@ -1,6 +1,8 @@
 package com.zoushiyou.dao.base;
 
 import com.zoushiyou.model.base.BaseModel;
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 /**
@@ -38,5 +40,5 @@ public interface BaseDao<TModel extends BaseModel> {
      * 分页数据
      * @return
      */
-    List<TModel> findAll();
+    List<TModel> findAll(@Param("params")String params);
 }

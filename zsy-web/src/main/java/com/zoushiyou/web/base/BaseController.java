@@ -29,7 +29,7 @@ public abstract class BaseController<TService extends BaseService> {
         return vo;
     }
 
-    @RequestMapping(value = "/deleteOne", method = RequestMethod.GET)
+    @RequestMapping(value = "/deleteOne", method = RequestMethod.POST)
     public ResultVo deleteOne(@RequestParam("id") long id) throws Exception {
         ResultVo vo=new ResultVo();
         Boolean isRow = modelService.deleteOne(id);

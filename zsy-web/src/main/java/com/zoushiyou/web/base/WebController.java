@@ -6,7 +6,6 @@ import com.zoushiyou.model.base.BaseModel;
 import com.zoushiyou.model.base.IDSnowFlake;
 import com.zoushiyou.model.dto.ResultVo;
 import com.zoushiyou.service.base.BaseService;
-import com.zoushiyou.web.util.Helper;
 import com.zoushiyou.web.util.JWTUtil;
 import com.zoushiyou.web.util.ZsyauthorizedException;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.swing.table.TableModel;
 import java.util.Date;
 import java.util.List;
 
@@ -38,7 +36,7 @@ public abstract class WebController<TService extends BaseService,TModel extends 
         if (authorization == null)
             throw new ZsyauthorizedException("没有登录信息！");
         long userId = JWTUtil.getUserId(authorization);
-        model.setId(idSnowFlake.nextId());//雪花算法ID
+        model.setId(idSnowFlake.getNewId());//雪花算法ID
         model.setVersion(1);
         model.setOwnerId(userId);
         model.setCreateId(userId);
@@ -57,6 +55,8 @@ public abstract class WebController<TService extends BaseService,TModel extends 
         String authorization = request.getHeader("Authorization");
         if (authorization == null)
             throw new ZsyauthorizedException("没有登录信息！");
+        if (modelService.findOne(model.getId()) == null)
+            throw new ZsyauthorizedException("系统中不存在这条记录,不能更新！");
         long userId = JWTUtil.getUserId(authorization);
         model.setUpdateId(userId);
         model.setUpdateTime(new Date());
@@ -67,12 +67,14 @@ public abstract class WebController<TService extends BaseService,TModel extends 
         vo.setTotalNum(1);
         return vo;
     }
+
     @RequestMapping(value = "/findAll", method = RequestMethod.GET)
     public ResultVo findAll(@RequestParam("pIndex") Integer pIndex,
-                            @RequestParam("pSize") Integer pSize) throws Exception {
+                            @RequestParam("pSize") Integer pSize,
+                            HttpServletRequest request) throws Exception {
         ResultVo vo=new ResultVo();
         PageHelper.startPage(pIndex, pSize);
-        List<TModel> lstData= modelService.findAll();
+        List<TModel> lstData = modelService.findAll(request);
         PageInfo<TModel> pageData=new PageInfo<>(lstData);
         vo.setData(pageData.getList());
         vo.setTotalNum((int) pageData.getTotal());

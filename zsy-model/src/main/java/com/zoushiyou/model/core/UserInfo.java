@@ -23,7 +23,7 @@ public class UserInfo extends BaseModel {
     /**
      * 性别 1：男 0：女
      */
-    private boolean is_Male;
+    private Integer is_Male = 1;
     /**
      * 手机号码
      */
@@ -53,11 +53,11 @@ public class UserInfo extends BaseModel {
         this.salt = salt;
     }
 
-    public boolean isIs_Male() {
+    public Integer getIs_Male() {
         return is_Male;
     }
 
-    public void setIs_Male(boolean is_Male) {
+    public void setIs_Male(Integer is_Male) {
         this.is_Male = is_Male;
     }
 
@@ -84,5 +84,4 @@ public class UserInfo extends BaseModel {
     public void setDeptId(long deptId) {
         this.deptId = deptId;
     }
-
 }

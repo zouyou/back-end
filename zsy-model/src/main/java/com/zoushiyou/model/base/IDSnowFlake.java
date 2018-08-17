@@ -78,6 +78,12 @@ public class IDSnowFlake {
                 | sequence;                             //序列号部分
     }
 
+    public long getNewId() {
+        String strId = "" + nextId();
+        strId = strId.substring(2, 18);
+        return Long.parseLong(strId);
+    }
+
     private long getNextMill() {
         long mill = getNewstmp();
         while (mill <= lastStmp) {

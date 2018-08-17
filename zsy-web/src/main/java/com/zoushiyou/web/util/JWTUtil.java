@@ -44,6 +44,9 @@ public class JWTUtil {
      */
     public static long getUserId(String token) {
         try {
+            if (token.contains("Bearer ")) {
+                token = token.replace("Bearer ", "");
+            }
             DecodedJWT jwt = JWT.decode(token);
             return jwt.getClaim("userId").asLong();
         } catch (JWTDecodeException e) {

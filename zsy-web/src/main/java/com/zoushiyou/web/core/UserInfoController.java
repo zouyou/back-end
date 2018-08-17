@@ -1,5 +1,6 @@
 package com.zoushiyou.web.core;
 
+import com.zoushiyou.model.base.ConstValue;
 import com.zoushiyou.model.core.UserInfo;
 import com.zoushiyou.model.dto.ResultVo;
 import com.zoushiyou.model.dto.UserLoginInfoDto;
@@ -41,9 +42,9 @@ public class UserInfoController extends WebController<UserInfoService,UserInfo> 
         String encodedPassword = Helper.GetMd5Str(password, username.trim() + user.getSalt());
         if (!user.getPassWord().equals(encodedPassword))
             throw new ZsyauthorizedException("密码输入错误!");
-        if (!user.getIs_Enable())
+        if (user.getIs_Enable() != ConstValue.Is_Enable)
             throw new ZsyauthorizedException("账号没有激活,请联系管理人员！");
-        if (user.getIs_Delete())
+        if (user.getIs_Delete() == ConstValue.Is_Delete)
             throw new ZsyauthorizedException("账号已经删除,请联系管理人员！");
         String token= JWTUtil.sign(user.getId(), encodedPassword);
         UserLoginInfoDto userLoginInfoDto = modelService.buildLoginData(user, token);

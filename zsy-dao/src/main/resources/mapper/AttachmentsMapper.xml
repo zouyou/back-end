@@ -9,8 +9,8 @@
         <result column="name" property="name" jdbcType="VARCHAR" />
         <result column="remarks" property="remarks" jdbcType="VARCHAR" />
         <result column="sortNum" property="sortNum" jdbcType="INTEGER" />
-        <result column="is_Enable" property="is_Enable" jdbcType="BIT" />
-        <result column="is_Delete" property="is_Delete" jdbcType="BIT" />
+        <result column="is_Enable" property="is_Enable" jdbcType="INTEGER" />
+        <result column="is_Delete" property="is_Delete" jdbcType="INTEGER" />
         <result column="ownerId" property="ownerId" jdbcType="BIGINT" />
         <result column="createId" property="createId" jdbcType="BIGINT" />
         <result column="updateId" property="updateId" jdbcType="BIGINT" />
@@ -66,6 +66,7 @@
     </select>
     <select id="findAll" resultMap="BaseResultMap" >
         select <include refid="Base_Column_List" /> from tb_attachments
-        where is_Enable=1 and is_Delete=0 order by sortNum
+        where is_Delete=0 <if test="params!=null">${params}</if>
+        order by sortNum
     </select>
 </mapper>
