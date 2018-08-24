@@ -9,11 +9,13 @@ import org.springframework.context.ApplicationContextAware;
  */
 public class SpringContextUtil implements ApplicationContextAware {
 
-    private static ApplicationContext applicationContext; // Spring应用上下文环境
+    private static ApplicationContext appCtx;                // Spring应用上下文环境
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        SpringContextUtil.applicationContext = applicationContext;
+        if (this.appCtx == null) {
+            this.appCtx = applicationContext;
+        }
     }
 
     /**
@@ -24,7 +26,6 @@ public class SpringContextUtil implements ApplicationContextAware {
      * @throws BeansException
      */
     public static Object getBean(String name) throws BeansException {
-        return applicationContext.getBean(name);
+        return appCtx.getBean(name);
     }
-
 }
