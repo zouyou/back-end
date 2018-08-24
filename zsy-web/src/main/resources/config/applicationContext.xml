@@ -6,6 +6,7 @@
     <!-- jdbc配置 -->
     <context:property-placeholder location="classpath:config/jdbc.properties"/> <!-- 自动将Service层注入-->
     <context:component-scan base-package="com.zoushiyou.service.impl"/>
+    <bean id="springContextUtil" class="com.zoushiyou.web.util.SpringContextUtil" />
     <!-- dbcp数据源 -->
     <bean id="stat-filter" class="com.alibaba.druid.filter.stat.StatFilter">
         <property name="slowSqlMillis" value="10000" />
