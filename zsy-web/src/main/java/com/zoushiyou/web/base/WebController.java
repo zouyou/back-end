@@ -7,7 +7,7 @@ import com.zoushiyou.model.base.IDSnowFlake;
 import com.zoushiyou.model.dto.ResultVo;
 import com.zoushiyou.service.base.BaseService;
 import com.zoushiyou.web.util.JWTUtil;
-import com.zoushiyou.web.util.ZsyauthorizedException;
+import com.zoushiyou.web.util.ZsyHandError;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,7 +34,7 @@ public abstract class WebController<TService extends BaseService,TModel extends 
         ResultVo vo=new ResultVo();
         String authorization = request.getHeader("Authorization");
         if (authorization == null)
-            throw new ZsyauthorizedException("没有登录信息！");
+            throw new ZsyHandError("没有登录信息！");
         long userId = JWTUtil.getUserId(authorization);
         model.setId(idSnowFlake.getNewId());//雪花算法ID
         model.setVersion(1);
@@ -54,9 +54,9 @@ public abstract class WebController<TService extends BaseService,TModel extends 
         ResultVo vo=new ResultVo();
         String authorization = request.getHeader("Authorization");
         if (authorization == null)
-            throw new ZsyauthorizedException("没有登录信息！");
+            throw new ZsyHandError("没有登录信息！");
         if (modelService.findOne(model.getId()) == null)
-            throw new ZsyauthorizedException("系统中不存在这条记录,不能更新！");
+            throw new ZsyHandError("系统中不存在这条记录,不能更新！");
         long userId = JWTUtil.getUserId(authorization);
         model.setUpdateId(userId);
         model.setUpdateTime(new Date());
