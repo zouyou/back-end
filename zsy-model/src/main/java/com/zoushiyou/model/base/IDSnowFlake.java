@@ -1,5 +1,7 @@
 package com.zoushiyou.model.base;
 
+import java.util.UUID;
+
 /**
  * ID雪花算法
  */
@@ -84,6 +86,16 @@ public class IDSnowFlake {
         return Long.parseLong(strId);
     }
 
+    public long getHashCodeUUId() {
+        int machineId = 1;//最大支持1-9个集群机器部署
+        int hashCodeV = UUID.randomUUID().toString().hashCode();
+        if (hashCodeV < 0) {//有可能是负数
+            hashCodeV = -hashCodeV;
+        }
+        // 0 代表前面补充0   11 代表长度为11 d 代表参数为正数型
+        return Long.parseLong(machineId + String.format("%010d", hashCodeV));
+    }
+
     private long getNextMill() {
         long mill = getNewstmp();
         while (mill <= lastStmp) {
@@ -97,9 +109,15 @@ public class IDSnowFlake {
     }
 
 //    public static void main(String[] args) {
-//        IDSnowFlake snowFlake = new IDSnowFlake(2, 3);
+//        //IDSnowFlake snowFlake = new IDSnowFlake(2, 3);
 //        for (int i = 0; i < (1 << 12); i++) {
-//            System.out.println(snowFlake.nextId());
+//            // System.out.println(snowFlake.nextId());
+//            new Thread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    //System.out.println(getHashCodeUUId());
+//                }
+//            }).start();
 //        }
 //    }
 }
