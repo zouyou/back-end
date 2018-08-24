@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
  * 用户信息接口
  */
 @RestController
-@RequestMapping(value = "/v1/user")
+@RequestMapping(value = "/v1/userInfo")
 public class UserInfoController extends WebController<UserInfoService,UserInfo> {
     @Autowired
     RoleInfoService roleInfoService;
