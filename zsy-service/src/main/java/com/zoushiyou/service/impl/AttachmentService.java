@@ -10,6 +10,6 @@ import org.springframework.stereotype.Service;
  * Author QQ:511570155
  * Date 2018-7-5 16:43
  */
-@Service
+@Service("attachmentService")
 public class AttachmentService extends BaseService<AttachmentsDao, Attachments> {
 }

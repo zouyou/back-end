@@ -11,7 +11,6 @@ import com.zoushiyou.model.dto.UserInfoDto;
 import com.zoushiyou.model.dto.UserLoginInfoDto;
 import com.zoushiyou.service.base.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,8 +19,7 @@ import java.util.List;
 /**
  * 用户信息服务类
  */
-@Service
-@Component("userInfoService")
+@Service("userInfoService")
 public class UserInfoService extends BaseService<UserInfoDao,UserInfo> {
     @Autowired
     RoleInfoService roleInfoService;

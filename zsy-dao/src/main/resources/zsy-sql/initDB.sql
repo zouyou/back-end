@@ -163,6 +163,32 @@ CREATE TABLE `tb_syslogs` (
 
 /*Data for the table `tb_syslogs` */
 
+/*Table structure for table `tb_quartzjob` */
+
+DROP TABLE IF EXISTS `tb_quartzjob`;
+
+CREATE TABLE `tb_quartzjob` (
+  `id` BIGINT PRIMARY KEY NOT NULL COMMENT '主键Id',
+  `parentId` BIGINT DEFAULT NULL COMMENT '父级主键Id',
+  `version` int(11) DEFAULT '1' COMMENT '版本',
+  `code` varchar(50) DEFAULT NULL COMMENT '任务编码',
+  `name` varchar(50) DEFAULT NULL COMMENT '任务名称',
+  `remarks` varchar(150) DEFAULT NULL COMMENT '备注',
+  `sortNum` int(11) DEFAULT '1' COMMENT '排序数字',
+  `is_Enable` int(1) DEFAULT '1' COMMENT '是否启用',
+  `is_Delete` int(1) DEFAULT '0' COMMENT '是否删除',
+  `ownerId` BIGINT DEFAULT NULL COMMENT '拥有人Id',
+  `createId` BIGINT NOT NULL COMMENT '创建人Id',
+  `updateId` BIGINT DEFAULT NULL COMMENT '更新人Id',
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  `updateTime` datetime DEFAULT NULL COMMENT '修改时间',
+  `jobGroup` varchar(50) DEFAULT NULL COMMENT '任务分组',
+  `jobStatus` int(1) DEFAULT NULL COMMENT '任务状态',
+  `jobCron` varchar(50) DEFAULT NULL COMMENT '任务表达式'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `tb_quartzjob` */
+
 /*Table structure for table `tb_userinfo` */
 
 DROP TABLE IF EXISTS `tb_userinfo`;
@@ -276,6 +302,9 @@ CREATE TABLE `tb_attachments` (
     INSERT INTO tb_funcinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
       ownerId, createId, updateId,createTime, updateTime,routePath,styleName,levelVal)
  VALUES (9, 3, 1,'/syslog', '日志管理', '',9, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8','/syslog','',2);
+   INSERT INTO tb_funcinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime,routePath,styleName,levelVal)
+ VALUES (11, 3, 1,'/quartz', '定时任务', '',11, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8','/quartz','',2);
 
      INSERT INTO tb_funcinfo (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
       ownerId, createId, updateId,createTime, updateTime,routePath,styleName,levelVal)
@@ -311,6 +340,9 @@ CREATE TABLE `tb_attachments` (
        INSERT INTO tb_rolejoinfunc (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
       ownerId, createId, updateId,createTime, updateTime,roleId,funcId,levelVal)
  VALUES (10, 0, 1,'', '', '',1, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8',1,10,1);
+        INSERT INTO tb_rolejoinfunc (id, parentId, VERSION, CODE, NAME, remarks,sortNum, is_Enable, is_Delete,
+      ownerId, createId, updateId,createTime, updateTime,roleId,funcId,levelVal)
+ VALUES (11, 0, 1,'', '', '',1, 1, 0, 1, 1, 1,'2018-8-8', '2018-8-8',1,11,1);
 
 
 

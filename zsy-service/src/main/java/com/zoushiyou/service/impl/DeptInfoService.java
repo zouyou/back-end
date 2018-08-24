@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service;
 /**
  * 部门服务
  */
-@Service
+@Service("deptInfoService")
 public class DeptInfoService extends BaseService<DeptInfoDao,DeptInfo> {
 }

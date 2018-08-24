@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service;
 /**
  * 角色功能服务
  */
-@Service
+@Service("roleJoinFuncService")
 public class RoleJoinFuncService extends BaseService<RoleJoinFuncDao,RoleJoinFunc> {
 }

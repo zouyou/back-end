@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service;
 /**
  * 角色信息服务
  */
-@Service
+@Service("roleInfoService")
 public class RoleInfoService extends BaseService<RoleInfoDao,RoleInfo> {
 }

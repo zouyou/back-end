@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service;
 /**
  * 日志服务
  */
-@Service
+@Service("sysLogService")
 public class SysLogService extends BaseService<SysLogsDao,SysLogs> {
 }
